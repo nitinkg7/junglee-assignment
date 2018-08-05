@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Global */
+
+* {
+  box-sizing : border-box;
+}
+
+body,
+html {
+  height     : 100%;
+  min-height : 100%;
+  margin: 0;
+}
+
+body {
+  margin           : 0;
+  background-color : #e7e7e7;
+  font-family      : 'Roboto',
+  sans-serif;
+}
+.mat-card{
+  margin:10px;
+  background: lightgray;
+  justify-content: center
+}
+.child-mat{
+  background: white;
+  justify-content: center
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.message-text{
+  color: #7dc855;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}

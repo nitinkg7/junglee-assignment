@@ -1,0 +1,30 @@
+<div *ngIf="!showError" class="main-div">
+  <div *ngIf="popularBanks?.length > 0">
+    <label>Popular Banks</label>
+    <mat-radio-group class="banks-radio-group" [(ngModel)]="selectedBank">
+      <mat-radio-button class="banks-radio-button" *ngFor="let bank of popularBanks"
+                        [value]="bank">
+        <mat-card>
+          <mat-card-content>{{bank.name}}</mat-card-content>
+        </mat-card>
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div *ngIf="banksList?.length > 0">
+    <label>{{popularBanks?.length > 0 ? 'Or select from other banks' : 'Select bank'}}</label>
+    <div class="banks">
+      <select [(ngModel)]="selectedBank" name="otherbanks">
+        <option *ngFor="let otherBank of banksList" [ngValue]="otherBank">{{otherBank.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="proceed-div">
+    <button mat-raised-button color="primary" class="proceed-btn"
+            [disabled]="!selectedBank"
+            (click)="proceedBankPayment()">Proceed
+    </button>
+  </div>
+</div>
+<div class="message-text" *ngIf="showError">Net Banking has temporarily been disabled. Please try again later and check
+  out with Credit Card or Debit Card to continue.
+</div>

@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-title>
+    <a [routerLink]="['/selectpackage']" class="success">1. Enter Amount</a>
+    &nbsp;&nbsp;<span [ngClass]="{'success' : isPaymentSuccess()}">2. Choose Payment Method</span>
+    <span *ngIf="!isPaymentSuccess()" style="float: right;">Amount: <strong style="color: green;">{{getPaymentAmout() | currency : 'INR' : 'symbol' : '1.0-0'}}</strong></span>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-card class="child-mat" *ngIf="!isPaymentSuccess()">
+      <mat-card-content>
+        <div id='parent_div_1'>
+          <div class='child_div_1'>
+            <app-leftmenuoptions (changePaymentMode)="updatePaymentMode($event)"></app-leftmenuoptions>
+          </div>
+          <div class='child_div_2'>
+            <app-cardmode *ngIf="selectedMode === 0 || selectedMode === 1" [mode]="selectedMode"></app-cardmode>
+            <app-netbankingmode *ngIf="selectedMode === 2"></app-netbankingmode>
+            <app-walletmode *ngIf="selectedMode === 3"></app-walletmode>
+            <app-cashcardmode *ngIf="selectedMode === 4"></app-cashcardmode>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="child-mat" *ngIf="isPaymentSuccess()">
+      <app-payment-success></app-payment-success>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-title>1. Enter Amount</mat-card-title>
+  <mat-card-content>
+    <mat-spinner *ngIf="loadingPackages; else packageSection" [diameter]="48"></mat-spinner>
+    <ng-template #packageSection>
+      <mat-card class="child-mat">
+        <mat-card-content>
+          <mat-radio-group class="package-radio-group" [(ngModel)]="selectedPackage">
+            <mat-radio-button class="package-radio-button" *ngFor="let paymentPackage of packageList"
+                              [value]="paymentPackage">
+              <mat-card>
+                <mat-card-content>Bonus: {{paymentPackage.bonus_price | currency : 'INR' : 'symbol' : '1.0-0'}}
+                </mat-card-content>
+                <mat-card-title>{{paymentPackage.custom_price | currency : 'INR' : 'symbol' : '1.0-0'}}</mat-card-title>
+              </mat-card>
+            </mat-radio-button>
+            <mat-radio-button class="package-radio-button" #amountRadioButton>
+              <mat-card>
+                <form class="amount-form" #amountForm="ngForm">
+                  <mat-form-field class="amount-full-width">
+                    <input matInput placeholder="Enter amount" required [(ngModel)]="customAmount" type="number"
+                           name="amountInput"
+                           (focus)="amountRadioButton.checked = true; selectedPackage = null" #enterAmount="ngModel">
+                    <mat-error
+                      *ngIf="enterAmount && enterAmount.errors && (enterAmount.dirty || enterAmount.touched) && !selectedPackage">
+                      Amount is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </form>
+              </mat-card>
+            </mat-radio-button>
+          </mat-radio-group>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" [disabled]="(!selectedPackage && !customAmount)" (click)="proceedForPayment()">Continue
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

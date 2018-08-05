@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>Please enter otp</mat-card-title>
+  <mat-card-content>
+    <mat-card class="child-mat">
+      <form class="otp-form" #otpForm="ngForm">
+        <mat-form-field class="otp-full-width">
+          <input matInput placeholder="Enter OTP" required [(ngModel)]="otp" type="text"
+                 name="opt" #otpField="ngModel">
+          <mat-error
+            *ngIf="otpField?.errors && (otpField?.dirty || otpField?.touched)">
+            OTP is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <button mat-raised-button color="primary"
+              [disabled]="!otp"
+              (click)="submitOTP()">Submit
+      </button>
+      <div class="message-text">{{errorMessage}}</div>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>Please enter credentials for {{getBankName()}}</mat-card-title>
+  <mat-card-content>
+    <mat-card class="child-mat">
+      <form class="account-form" #accountForm="ngForm">
+        <mat-form-field class="account-full-width">
+          <input matInput placeholder="Enter account id" required [(ngModel)]="account_id" type="text"
+                 name="accountId" #accountId="ngModel">
+          <mat-error
+            *ngIf="accountId?.errors && (accountId?.dirty || accountId?.touched)">
+            AccountId is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="amount-full-width">
+          <input matInput placeholder="Enter account Id" required [(ngModel)]="routing_id" type="text"
+                 name="routingId" #routingId="ngModel">
+          <mat-error
+            *ngIf="routingId?.errors && (routingId?.dirty || routingId?.touched)">
+            RoutingId is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <button mat-raised-button color="primary"
+              [disabled]="!account_id|| !routing_id"
+              (click)="proceedFinalConfirmation()">Proceed
+      </button>
+      <div class="message-text">{{errorMessage}}</div>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

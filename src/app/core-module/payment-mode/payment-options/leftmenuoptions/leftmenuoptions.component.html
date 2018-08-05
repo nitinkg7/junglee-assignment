@@ -1,0 +1,13 @@
+<div class="sub_child_1">
+  <button mat-raised-button class="button" (click)="selectPaymentMode(0)" [ngClass]="{selected: selectedMode === 0}"
+          #button1>Credit Card</button>
+  <button mat-raised-button class="button" (click)="selectPaymentMode(1)" [ngClass]="{selected: selectedMode === 1}"
+          #button2>Debit Card</button>
+  <button mat-raised-button class="button" (click)="selectPaymentMode(2)" [ngClass]="{selected: selectedMode === 2}"
+          #button3>Net Banking</button>
+  <button mat-raised-button class="button" (click)="selectPaymentMode(3)" [ngClass]="{selected: selectedMode === 3}"
+          #button4>Wallet</button>
+  <button mat-raised-button class="button button_last" (click)="selectPaymentMode(4)" [ngClass]="{selected: selectedMode === 4}"
+          #button5>Cash Card</button>
+</div>
+

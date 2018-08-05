@@ -1,0 +1,29 @@
+#parent_div_1 {
+  width: 80%;
+  height: 100%;
+  float: left;
+
+}
+
+.child_div_1 {
+  float: left;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 30%
+}
+.success{
+  color: green;
+}
+
+.child_div_2 {
+  box-sizing: border-box;
+  float: right;
+  display: inline-block;
+  width: 70%;
+}
+
+.mat-card-content > :last-child:not(.mat-card-footer), .mat-card > :last-child:not(.mat-card-footer) {
+  margin-bottom: 0;
+  width: 100%;
+  display: inline-flex;
+}

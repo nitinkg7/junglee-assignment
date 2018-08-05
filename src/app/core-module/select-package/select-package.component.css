@@ -1,0 +1,19 @@
+.package-radio-group {
+  display: inline-block;
+  flex-direction: row ;
+}
+
+.package-radio-button {
+  margin: 5px;
+}
+
+.amount-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.amount-full-width {
+  width: 100%;
+}
+

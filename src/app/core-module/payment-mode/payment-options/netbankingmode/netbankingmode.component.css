@@ -1,0 +1,58 @@
+.main-div{
+  margin: 10px;
+}
+
+.banks-radio-group {
+  width:100%;
+  display: inline-block;
+  flex-direction: row ;
+}
+
+.banks-radio-button {
+  margin: 5px;
+}
+
+.mat-card{
+  font-size: 14px;
+  padding: 8px;
+}
+
+.banks select{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 300px;
+  margin-top: 10px;
+  padding-left: 20px;
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+  background: url(../../../../../assets/images/caret.png) no-repeat;
+  background-position: 85% 50%;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 14px;
+  color: #86939e;
+  opacity: .7;
+  height: 42px;
+}
+
+.banks select {
+  float: left;
+}
+
+.proceed-div{
+  width: 100%;
+  display: inline-block;
+}
+.proceed-btn {
+  cursor: pointer;
+  width: 200px;
+  border-color: transparent;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding: 8px;
+  color: white;
+  box-sizing: border-box;
+  background: #7dc855;
+}

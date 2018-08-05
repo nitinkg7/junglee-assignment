@@ -1,0 +1,39 @@
+<form class="credit-card">
+  <div class="form-body">
+    <label>Enter {{mode === 0? 'credit' : 'debit'}} card number</label>
+    <input class="card-number" placeholder="Card Number" type="text" pattern="[0-9]" minlength="16" maxlength="16" name="card_number"
+           [(ngModel)]="cardDetails.card_number"
+           onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+
+    <label>Expiry Date</label>
+    <div class="date-field">
+      <div class="month">
+        <select name="Month" [(ngModel)]="selectedMonth">
+          <option *ngFor="let month of monthsList" [value]="month">{{month}}</option>
+        </select>
+      </div>
+      <div class="year">
+        <select name="Year" [(ngModel)]="selectedYear">
+          <option *ngFor="let year of yearsList" [value]="year">{{year}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card-verification">
+      <div class="cvv-input">
+        <input type="text" pattern="[0-9]" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="cvv"
+               [(ngModel)]="cardDetails.cvv"
+               placeholder="CVV" maxlength="4" minlength="3">
+      </div>
+      <div class="cvv-details">
+        <p>3 or 4 digits usually found <br> on the signature strip</p>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" class="proceed-btn"
+            [disabled]="(cardDetails.card_number.length < 16 || cardDetails.cvv.length < 3)"
+            (click)="proceedCardPayment()">Proceed
+    </button>
+  </div>
+  <div class="message-text">{{errorMessage}}</div>
+</form>
