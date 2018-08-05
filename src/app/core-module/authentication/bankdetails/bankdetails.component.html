@@ -12,7 +12,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="amount-full-width">
-          <input matInput placeholder="Enter account Id" required [(ngModel)]="routing_id" type="text"
+          <input matInput placeholder="Enter routing Id" required [(ngModel)]="routing_id" type="text"
                  name="routingId" #routingId="ngModel">
           <mat-error
             *ngIf="routingId?.errors && (routingId?.dirty || routingId?.touched)">
