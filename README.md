@@ -2,7 +2,7 @@
 Follow below commands to run the frontend.
 #npm install
 #npm start
-App will start at http://localhost:4200
+App will start at http://localhost:8080
 
 # Card Payment Testing (Credit and Debit)
 Test Card Details:
